@@ -13,12 +13,14 @@ const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
   'http://192.168.1.140:5173',
-  'http://localhost:5173'
+  'http://localhost:5173',
+  'https://iot-front-topaz.vercel.app/'
+
 ];
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: 'http://192.168.1.140:5173',
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
   },
 });
